@@ -1,11 +1,11 @@
 import MovieList from "./movieList/page";
 import { Suspense } from "react";
-import { Skeleton } from "antd";
+
 
 export default function Home() {
   return (
     <div>
-      <Suspense fallback={<Skeleton active />}>
+      <Suspense fallback={<div className="p-6 text-gray-500 animate-pulse">Загрузка фильмов...</div>}>
         <MovieList />
       </Suspense>
     </div>
