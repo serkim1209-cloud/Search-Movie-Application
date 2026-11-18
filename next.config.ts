@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  experimental: {
+    experimental: {
     agentFeedback: true,
   },
   cacheComponents: true,
@@ -16,6 +16,15 @@ const nextConfig: NextConfig = {
       },
     },
   },
-};
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+        pathname: "/t/p/**",
+      },
+    ],
+  }
+}
 
 export default nextConfig;
