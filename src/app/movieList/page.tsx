@@ -1,9 +1,17 @@
+type Movie ={
+    title: string,
+    date: string,
+    overview: string,
+    poster: string,
+}
+
 import getMovies from "../lib/movies";
 import Image from "next/image";
 import { Card, Button } from "antd";
 
+
 export default async function MovieList() {
-  const data = await getMovies();
+  const data = await getMovies({Movie:[]});
 
   return (
     <div className="grid md:grid-cols-2 grid-cols-1  justify-items-center items-center gap-4 w-[950px] h-[900px]">
