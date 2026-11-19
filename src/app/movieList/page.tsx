@@ -1,21 +1,21 @@
-type Movie ={
-    title: string,
-    date: string,
-    overview: string,
-    poster: string,
-}
+type Movie = {
+  id: number;
+  title: string;
+  release_date: string;
+  overview: string;
+  poster_path: string;
+};
 
 import getMovies from "../lib/movies";
 import Image from "next/image";
 import { Card, Button } from "antd";
 
-
 export default async function MovieList() {
-  const data = await getMovies({Movie:[]});
+  const data = await getMovies();
 
   return (
     <div className="grid md:grid-cols-2 grid-cols-1  justify-items-center items-center gap-4 w-[950px] h-[900px]">
-      {data.results.slice(0,6).map((movie) => (
+      {data.results.slice(0, 6).map((movie: Movie) => (
         <Card
           styles={{ body: { padding: 0 } }}
           hoverable
@@ -36,7 +36,7 @@ export default async function MovieList() {
                 {movie.title}
               </h1>
               <time className="text-[#827E7E]">
-                {new Date(movie.release_date).toLocaleDateString("en-En", {
+                {new Date(movie.release_date).toLocaleDateString("en-US", {
                   day: "numeric",
                   month: "long",
                   year: "numeric",

@@ -6,7 +6,7 @@ type Movie ={
     poster: string,
 }
 
-export default async function getMovies({Movie:[]}){
+export default async function getMovies(){
     const token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZjAyODMxMzQ1YTVlMDA4MDk5NDgzYTNjMDBjYmE1MiIsIm5iZiI6MTc5NDkxNjA1OS40NTYsInN1YiI6IjZhZmMzZWRiNjUxY2FjOWU0NGY4MGQ0MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7k-nOohDXZQE62FPWG6Vof8NNL6EcQThtY8JB5AmLaY"
    
     try{
