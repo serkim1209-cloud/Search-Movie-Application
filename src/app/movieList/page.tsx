@@ -3,7 +3,11 @@ type Movie = {
   title: string;
   release_date: string;
   overview: string;
-  poster_path: string;
+  poster_path: string | null;
+};
+
+type MoviesResponse = {
+  results: Movie[];
 };
 
 import getMovies from "../lib/movies";
@@ -11,11 +15,11 @@ import Image from "next/image";
 import { Card, Button } from "antd";
 
 export default async function MovieList() {
-  const data = await getMovies();
+  const data: MoviesResponse = await getMovies();
 
   return (
     <div className="grid md:grid-cols-2 grid-cols-1  justify-items-center items-center gap-4 w-[950px] h-[900px]">
-      {data.results.slice(0, 6).map((movie: Movie) => (
+      {data.results.slice(0, 6).map((movie) => (
         <Card
           styles={{ body: { padding: 0 } }}
           hoverable
